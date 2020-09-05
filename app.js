@@ -1,4 +1,5 @@
 const express = require("express");
+const authRoutes = require('./routes/authRoutes');
 //const morgan = require("morgan");
 
 // Express app
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.get("/", (req, res) => res.render('home'));
 app.get('/sandwiches', (req, res) => res.render('sandwiches'));
+app.use(authRoutes);
 
 
 module.exports = app;
