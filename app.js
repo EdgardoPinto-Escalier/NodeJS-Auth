@@ -1,5 +1,5 @@
-const express = require("express");
-const authRoutes = require('./routes/authRoutes');
+const express = require("express"); // Import or require Express
+const authRoutes = require('./routes/authRoutes'); // Import the authRoutes
 //const morgan = require("morgan");
 
 // Express app
@@ -19,5 +19,5 @@ app.get("/", (req, res) => res.render('home'));
 app.get('/sandwiches', (req, res) => res.render('sandwiches'));
 app.use(authRoutes);
 
-
+// Exports the file
 module.exports = app;
