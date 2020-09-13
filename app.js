@@ -1,5 +1,6 @@
 const express = require("express"); // Import or require Express
 const authRoutes = require('./routes/authRoutes'); // Import the authRoutes
+const coockieParser = require('cookie-parser');
 //const morgan = require("morgan");
 
 // Express app
@@ -12,6 +13,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(coockieParser());
 //app.use(morgan("dev"));
 
 // Routes
