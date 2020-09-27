@@ -1,6 +1,7 @@
 const express = require("express"); // Import or require Express
 const authRoutes = require('./routes/authRoutes'); // Import the authRoutes
 const coockieParser = require('cookie-parser');
+const { requireAuth } = require('./middleware/authMiddleware');
 //const morgan = require("morgan");
 
 // Express app
@@ -18,7 +19,7 @@ app.use(coockieParser());
 
 // Routes
 app.get("/", (req, res) => res.render('home'));
-app.get('/sandwiches', (req, res) => res.render('sandwiches'));
+app.get('/sandwiches', requireAuth, (req, res) => res.render('sandwiches'));
 app.use(authRoutes);
 
 // Exports the file
